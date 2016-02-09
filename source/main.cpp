@@ -20,6 +20,7 @@ int main(int argv, char* argc[])
 		int iScreenWidth = 0, iScreenHeight = 0;
 		UG::GetScreenSize(iScreenWidth, iScreenHeight);
 		UG::MoveSprite(iPlayerSprite, iScreenWidth * 0.5f, iScreenHeight * 0.5f);
+		UG::DrawSprite(iPlayerSprite);
 
 		do 
 		{
@@ -38,9 +39,8 @@ int main(int argv, char* argc[])
 			if (UG::IsKeyDown(UG::KEY_ESCAPE))
 				UG::Close();
 
+			//Draw code for Text and lines follows
 			UG::ClearScreen();
-
-			UG::DrawSprite(iPlayerSprite);
 
 			UG::SetFont("./fonts/invaders.fnt");
 			UG::DrawString("HI-SCORE", (int)(iScreenWidth * 0.4f), iScreenHeight - 2, 1.f);
@@ -50,7 +50,7 @@ int main(int argv, char* argc[])
 			UG::SetFont(nullptr);
 
 		} while (UG::Process());
-
+		UG::StopDrawingSprite(iPlayerSprite);
 		UG::DestroySprite(iPlayerSprite);
 		
 		UG::Dispose();

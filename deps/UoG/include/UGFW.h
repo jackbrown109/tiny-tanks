@@ -140,7 +140,7 @@ namespace UG
 	/// @param a_v4color - the colour tint that the sprite is to be given, defaults to white.
 	/// @return the ID for the sprite, this is an unsigned integer.
 	///
-	DLLEXPORT unsigned int	CreateSprite(const char* a_pTextureName, float a_fWidth, float a_fHeight, bool a_bDrawFromCenter = true, SColour a_sColour = SColour(0xFF, 0xFF, 0xFF, 0xFF));
+	DLLEXPORT int			CreateSprite(const char* a_pTextureName, float a_fWidth, float a_fHeight, bool a_bDrawFromCenter = true, SColour a_sColour = SColour(0xFF, 0xFF, 0xFF, 0xFF));
 	/// Function to create a Sprite
 	/// @param a_pTextureName - the name of the texture that the sprite image resides in
 	/// @param a_fv2Size - the width and height of the sprite in Pixels as a float vector
@@ -149,93 +149,113 @@ namespace UG
 	/// @param a_v4color - the colour tint that the sprite is to be given, defaults to white.
 	/// @return the ID for the sprite, this is an unsigned integer.
 	///
-	DLLEXPORT unsigned int	CreateSprite(const char* a_pTextureName, const float* a_fv2Size, const float* a_fv2Origin, const float* a_fv4UVCoords = nullptr, SColour a_sColour = SColour(0xFF, 0xFF, 0xFF, 0xFF));
+	DLLEXPORT int			CreateSprite(const char* a_pTextureName, const float* a_fv2Size, const float* a_fv2Origin, const float* a_fv4UVCoords = nullptr, SColour a_sColour = SColour(0xFF, 0xFF, 0xFF, 0xFF));
 	/// Function to Duplicate an existing Sprite
 	/// @param a_uiSpriteID This is ID of the sprite that is to be duplicated
 	/// @return Returns a new sprite ID.
-	DLLEXPORT unsigned int	DuplicateSprite(unsigned int a_uiSpriteID);
+	DLLEXPORT  int			DuplicateSprite(int a_uiSpriteID);
 	/// This function is used to free up the memory associated with the Sprite ID passed in. After this function is called the sprite can no longer be drawn as it ceases to exist
 	/// @param a_uiSpriteID the ID of the sprite to be destroyed.
-	DLLEXPORT void			DestroySprite(unsigned int a_uiSpriteID);
+	DLLEXPORT void			DestroySprite(int a_uiSpriteID);
+
+	/// This function is used to set the layer that the sprite will be rendered on, lower layers are rendered first
+	/// @param a_iSpriteID the Unique ID that is used for the sprite
+	/// @param a_uiLayer the layer the the sprite is to be moved to
+	DLLEXPORT void			SetSpriteLayer(int a_iSpriteID, const unsigned int& a_uiLayer);
+	/// This function is used to Get the layer that the sprite is currently rendered on, lower layers are rendered first
+	/// @param a_iSpriteID the Unique ID that is used for the sprite
+	/// @param a_uiLayer an unsigned int reference that will be returned with the layer that the sprite is currently on 
+	DLLEXPORT void			GetSpriteLayer(int a_iSpriteID, unsigned int& a_uiLayer);
 	/// This funciton moves a Sprite
 	/// @param a_uiSpriteID the ID of the sprite to be moved
 	/// @param a_fXPos the X co-ordinate that the sprite is to be moved to in screenspace
 	/// @param a_fYPos the Y co-ordinate that the sprite is to be moved to in screenspace
-	DLLEXPORT void			MoveSprite(unsigned int a_uiSpriteID, float a_fXPos, float a_fYPos);
+	DLLEXPORT void			MoveSprite( int a_uiSpriteID, float a_fXPos, float a_fYPos);
 	/// This funciton moves a Sprite
 	/// @param a_uiSpriteID the ID of the sprite to be moved
 	/// @param a_fVec a float vector that contains two values (X & Y) to relocate the sprite to
-	DLLEXPORT void			MoveSprite(unsigned int a_uiSpriteID, const float* a_fVec);
+	DLLEXPORT void			MoveSprite( int a_uiSpriteID, const float* a_fVec);
 	/// @brief This function gets the x y post of the Sprite
 	/// @param a_uiSpriteID the unique identifier for the sprite
 	/// @param a_fXPos the X co-ordinate that the sprite is at
 	/// @param a_fYPos the Y co-ordinate that the sprite is at
-	DLLEXPORT void			GetSpritePosition(unsigned int a_uiSpriteID, float& a_xPos, float& a_YPos);
+	DLLEXPORT void			GetSpritePosition( int a_uiSpriteID, float& a_xPos, float& a_YPos);
 	/// @brief This function sets the 4x4 matrix for the sprite
 	/// @param a_uiSpriteID the unique identifier for the sprite
 	/// @param a_fm4 a float pointer indicating the start of a float array containing 16 values representing a 4 x 4 matrix
-	DLLEXPORT void			SetSpriteMatrix(unsigned int a_uiSpriteID, const float* a_fm4);
+	DLLEXPORT void			SetSpriteMatrix( int a_uiSpriteID, const float* a_fm4);
 	/// @brief This function gets the 4x4 matrix for the sprite
 	/// @param a_uiSpriteID the unique identifier for the sprite
 	/// @param a_fm4 a float pointer indicating the start of a float array that is to be used to hold the 16 float values representing a 4 x 4 matrix
-	DLLEXPORT void			GetSpriteMatrix(unsigned int a_uiSpriteID, float* a_fm4);
-	/// @brief Function to draw a sprite to the screen
+	DLLEXPORT void			GetSpriteMatrix( int a_uiSpriteID, float* a_fm4);
+	/// @brief Function to instruct a sprite to draw the screen
 	/// @param a_uiSpriteID the unique identifier for the Sprite
-	DLLEXPORT void			DrawSprite(unsigned int a_uiSpriteID);
+	DLLEXPORT void			DrawSprite( int a_uiSpriteID);
+	/// @brief Function to stop a sprite from drawing to the screen
+	/// @param a_uiSpriteID the unique identifier for the Sprite
+	DLLEXPORT void			StopDrawingSprite(int a_uiSpriteID);
 	/// @brief Function to rotate a sprite by a_fRotation number of degrees, positive rotation is in a clockwise direction
 	/// @param a_uiSpriteID the unique ID for the sprite
 	/// @param a_fRotation the amount in degrees to rotate the sprite by, this value is non-cumulative E.G passing in a rotation value of 1 Degree every frame will not incrementally rotate the sprite each frame.
-	DLLEXPORT void			RotateSprite(unsigned int a_uiSpriteID, float a_fRotation);
+	DLLEXPORT void			RotateSprite( int a_uiSpriteID, float a_fRotation);
 	/// @brief This function sets the sprites UV coordinates
 	/// @param a_uiSpriteID the unique identifier for the given sprite
 	/// @param a_minUCoord this represents the starting point for the UV coordinates on the U Texture axis
 	/// @param a_minVCoord this represents the starting point for the UV coordinates on the V Texture axis
 	/// @param a_maxUCoord this represents the end point for the UV coordinates on the U Texture axis
 	/// @param a_maxVCoord this represents the end point for the UV coordinates on the V Texture axis
-	DLLEXPORT void			SetSpriteUVCoordinates(unsigned int a_uiSpriteID, float a_minUCoord, float a_minVCoord, float a_maxUCoord, float a_maxVCoord);
+	DLLEXPORT void			SetSpriteUVCoordinates( int a_uiSpriteID, float a_minUCoord, float a_minVCoord, float a_maxUCoord, float a_maxVCoord);
 	/// @brief This function sets the sprites UV coordinates
 	/// @param a_uiSpriteID the unique identifier for the given sprite
 	/// @param a_v4UVVoordinates a float vector4 representing the minimum and maximum UV Coordinates for the sprite, the X and Y components of the Vec4 correspond to the minimum UV coordinates
 	///			the Z & W components correspond to the maximum UV Coordinates
-	DLLEXPORT void			SetSpriteUVCoordinates(unsigned int a_uiSpriteID, const float* a_fUVVec4);
+	DLLEXPORT void			SetSpriteUVCoordinates( int a_uiSpriteID, const float* a_fUVVec4);
 	/// @brief This functions retrieves the Sprites current UV coordinates
 	/// @param a_uiSpriteID the unique identifier for the given sprite
 	/// @param a_minUCoord this represents the starting point for the UV coordinates on the U Texture axis
 	/// @param a_minVCoord this represents the starting point for the UV coordinates on the V Texture axis
 	/// @param a_maxUCoord this represents the end point for the UV coordinates on the U Texture axis
 	/// @param a_maxVCoord this represents the end point for the UV coordinates on the V Texture axis
-	DLLEXPORT void			GetSpriteUVCoordinates(unsigned int a_uiSpriteID, float& a_minUCoord, float& a_minVCoord, float& a_maxUCoord, float& a_maxVCoord);
+	DLLEXPORT void			GetSpriteUVCoordinates( int a_uiSpriteID, float& a_minUCoord, float& a_minVCoord, float& a_maxUCoord, float& a_maxVCoord);
 	/// @brief This functions retrieves the Sprites current UV coordinates
 	/// @param a_uiSpriteID the unique identifier for the given sprite
 	/// @param a_v4UVVoordinates a float vector4 representing the minimum and maximum UV Coordinates for the sprite, the X and Y components of the Vec4 correspond to the minimum UV coordinates
 	///			the Z & W components correspond to the maximum UV Coordinates
-	DLLEXPORT void			GetSpriteUVCoordinates(unsigned int a_uiSpriteID, float* a_fUVVec4);
+	DLLEXPORT void			GetSpriteUVCoordinates( int a_uiSpriteID, float* a_fUVVec4);
 	/// @brief Used to set the colour for the sprite
 	/// @param a_uiSpriteID the unique identifier for the given sprite
 	/// @param a_sColour the colour that the sprite is to be tinted with, this colour is passed in a vec4 with xyzw values mapping to rgba values
-	DLLEXPORT void			SetSpriteColour(unsigned int a_uiSpriteID, const SColour& a_sColour);
+	DLLEXPORT void			SetSpriteColour( int a_uiSpriteID, const SColour& a_sColour);
 	/// @brief Used to get the current colour for the sprite
 	/// @param a_uiSpriteID the unique identifier for the given sprite
 	/// @param a_sColour the colour that the sprite is tinted with, this colour is accessed via a vec4 with xyzw values mapping to rgba values
-	DLLEXPORT void			GetSpriteColour(unsigned int a_uiSpriteID, SColour& a_sColour);
+	DLLEXPORT void			GetSpriteColour( int a_uiSpriteID, SColour& a_sColour);
+	/// @brief Used to set the discard colour for the sprite
+	/// @param a_uiSpriteID the unique identifier for the given sprite
+	/// @param a_sColour the colour that the sprite is to be tinted with, this colour is passed in a vec4 with xyzw values mapping to rgba values
+	DLLEXPORT void			SetSpriteDiscardColour(int a_uiSpriteID, const SColour& a_sColour);
+	/// @brief Used to get the discard colour for the sprite
+	/// @param a_uiSpriteID the unique identifier for the given sprite
+	/// @param a_sColour the colour that the sprite is tinted with, this colour is accessed via a vec4 with xyzw values mapping to rgba values
+	DLLEXPORT void			GetSpriteDiscardColour(int a_uiSpriteID, SColour& a_sColour);
 	/// @brief Used to set the current scale for the sprite
 	/// @param a_uiSpriteID the unique identifier for the given sprite
 	/// @param a_v2Scale a Vec2 representing the scale in the X and Y Directions that the sprite is to be scaled by
-	DLLEXPORT void			SetSpriteScale(unsigned int a_uiSpriteID, const float& a_fSpriteWidth, const float& a_fSpriteHeight);
+	DLLEXPORT void			SetSpriteScale( int a_uiSpriteID, const float& a_fSpriteWidth, const float& a_fSpriteHeight);
 	/// @brief Used to get the current scale for the sprite
 	/// @param a_uiSpriteID the unique identifier for the given sprite
 	/// @param a_v2Scale a Vec2 representing the scale in the X and Y Directions that the sprite is to currently scaled by
-	DLLEXPORT void			GetSpriteScale(unsigned int a_uiSpriteID, float& a_fSpriteWidth, float& a_fSpriteHeight);
+	DLLEXPORT void			GetSpriteScale( int a_uiSpriteID, float& a_fSpriteWidth, float& a_fSpriteHeight);
 	/// @brief Used to set the current blend mode for the sprite
 	/// @param a_uiSpriteID the unique identifier for the given sprite
 	/// @param a_uiSourceFactor the blend factor for the source image
 	/// @param a_uiDestinationFactor the blend mode that is to be used by the destination image.
-	DLLEXPORT void			SetSpriteBlendMode(unsigned int a_uiSpriteID, const unsigned int& a_uiSourceFactor, const unsigned int& a_uiDestinationFactor);
+	DLLEXPORT void			SetSpriteBlendMode( int a_uiSpriteID, const unsigned int& a_uiSourceFactor, const unsigned int& a_uiDestinationFactor);
 	/// @brief Used to get the current blend mode for the sprite
 	/// @param a_uiSpriteID the unique identifier for the given sprite
 	/// @param a_uiSourceFactor the current blend factor for the source image
 	/// @param a_uiDestinationFactor the current blend mode that is used by the destination image.
-	DLLEXPORT void			GetSpriteBlendMode(unsigned int a_uiSpriteID, unsigned int& a_uiSourceFactor, unsigned int& a_uiDestinationFactor);
+	DLLEXPORT void			GetSpriteBlendMode( int a_uiSpriteID, unsigned int& a_uiSourceFactor, unsigned int& a_uiDestinationFactor);
 
 #pragma endregion
 #pragma region Font Rendering functionality

@@ -89,12 +89,12 @@
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)../../include;$(SolutionDir)../../deps/tinyxml;$(SolutionDir)../../deps/soil/src;$(SolutionDir)../../deps/glfw-3.1.1/include;$(SolutionDir)../../deps/glew-1.12.0/include;$(SolutionDir)../../deps/glm;$(SolutionDir)../../deps/UoG/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)../../include;$(SolutionDir)../../deps/tinyxml;$(SolutionDir)../../deps/UoG/include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLM_SWIZZLE;GLM_FORCE_RADIANS;GLM_FORCE_PURE;GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)../../deps/soil/lib/vs2013/$(Platform)/$(Configuration);$(SolutionDir)../../deps/glew-1.12.0/lib-vc2013/$(Platform)/$(Configuration);$(SolutionDir)../../deps/glfw-3.1.1/lib-vc2013/$(Platform)/$(Configuration);$(SolutionDir)../../deps/UoG/lib/vs2013/$(Platform)/$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)../../deps/UoG/lib/vs2013/$(Platform)/$(Configuration)</AdditionalLibraryDirectories>
       <AdditionalDependencies>UG Basic Framework.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
@@ -106,12 +106,12 @@
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)../../include;$(SolutionDir)../../deps/tinyxml;$(SolutionDir)../../deps/soil/src;$(SolutionDir)../../deps/glfw-3.1.1/include;$(SolutionDir)../../deps/glew-1.12.0/include;$(SolutionDir)../../deps/glm;$(SolutionDir)../../deps/UoG/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)../../include;$(SolutionDir)../../deps/tinyxml;$(SolutionDir)../../deps/UoG/include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLM_SWIZZLE;GLM_FORCE_RADIANS;GLM_FORCE_PURE;GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)../../deps/soil/lib/vs2013/$(Platform)/$(Configuration);$(SolutionDir)../../deps/glew-1.12.0/lib-vc2013/$(Platform)/$(Configuration);$(SolutionDir)../../deps/glfw-3.1.1/lib-vc2013/$(Platform)/$(Configuration);$(SolutionDir)../../deps/UoG/lib/vs2013/$(Platform)/$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)../../deps/UoG/lib/vs2013/$(Platform)/$(Configuration)</AdditionalLibraryDirectories>
       <AdditionalDependencies>UG Basic Framework.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
@@ -125,14 +125,14 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)../../include;$(SolutionDir)../../deps/tinyxml;$(SolutionDir)../../deps/soil/src;$(SolutionDir)../../deps/glfw-3.1.1/include;$(SolutionDir)../../deps/glew-1.12.0/include;$(SolutionDir)../../deps/glm;$(SolutionDir)../../deps/UoG/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)../../include;$(SolutionDir)../../deps/tinyxml;$(SolutionDir)../../deps/UoG/include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLM_SWIZZLE;GLM_FORCE_RADIANS;GLM_FORCE_PURE;GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(SolutionDir)../../deps/soil/lib/vs2013/$(Platform)/$(Configuration);$(SolutionDir)../../deps/glew-1.12.0/lib-vc2013/$(Platform)/$(Configuration);$(SolutionDir)../../deps/glfw-3.1.1/lib-vc2013/$(Platform)/$(Configuration);$(SolutionDir)../../deps/UoG/lib/vs2013/$(Platform)/$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)../../deps/UoG/lib/vs2013/$(Platform)/$(Configuration)</AdditionalLibraryDirectories>
       <AdditionalDependencies>UG Basic Framework.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
@@ -146,14 +146,14 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)../../include;$(SolutionDir)../../deps/tinyxml;$(SolutionDir)../../deps/soil/src;$(SolutionDir)../../deps/glfw-3.1.1/include;$(SolutionDir)../../deps/glew-1.12.0/include;$(SolutionDir)../../deps/glm;$(SolutionDir)../../deps/UoG/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)../../include;$(SolutionDir)../../deps/tinyxml;$(SolutionDir)../../deps/UoG/include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLM_SWIZZLE;GLM_FORCE_RADIANS;GLM_FORCE_PURE;GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(SolutionDir)../../deps/soil/lib/vs2013/$(Platform)/$(Configuration);$(SolutionDir)../../deps/glew-1.12.0/lib-vc2013/$(Platform)/$(Configuration);$(SolutionDir)../../deps/glfw-3.1.1/lib-vc2013/$(Platform)/$(Configuration);$(SolutionDir)../../deps/UoG/lib/vs2013/$(Platform)/$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)../../deps/UoG/lib/vs2013/$(Platform)/$(Configuration)</AdditionalLibraryDirectories>
       <AdditionalDependencies>UG Basic Framework.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
