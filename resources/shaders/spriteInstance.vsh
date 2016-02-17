@@ -22,26 +22,24 @@ out VERTEX
 
 void main()
 {
-	int texelLocation = gl_InstanceID * 4;
+	int texelLocation = gl_InstanceID * 7;
 	//get components from texture buffer with get texel
-	vec4 posRot			= texelFetch(data_tbo, texelLocation );
-	vec4 origin_scale	= texelFetch(data_tbo, texelLocation + 1);
-	vec4 uvData			= texelFetch(data_tbo, texelLocation + 2);
-	vec4 color			= texelFetch(data_tbo, texelLocation + 3);
+	vec4 xAxis			= texelFetch(data_tbo, texelLocation);
+	vec4 yAxis			= texelFetch(data_tbo, texelLocation + 1);
+	vec4 zAxis			= texelFetch(data_tbo, texelLocation + 2);
+	vec4 trans			= texelFetch(data_tbo, texelLocation + 3);
+	//Compose Matrix from texture data
+	mat4 m4Model		= mat4(xAxis, yAxis, zAxis, trans);
+	
+	vec4 origin_scale	= texelFetch(data_tbo, texelLocation + 4);
+	vec4 uvData			= texelFetch(data_tbo, texelLocation + 5);
+	vec4 color			= texelFetch(data_tbo, texelLocation + 6);
 
-	float cosRot = cos(posRot.w);
-	float sinRot = sin(posRot.w);
-
-	mat4 m4Model = mat4(vec4( cosRot, -sinRot, 0, 0),
-						vec4( sinRot, cosRot, 0, 0),
-						vec4(0, 0, 1, 0),
-						vec4(posRot.x, posRot.y, posRot.z, 1));
 	
 	
 	vertex.UV = uv * uvData.zw + uvData.xy;
 	vertex.Color = color;
-	//vertex.ColorToAlpha = colorToAlpha;
-
+	
 	vec4 adjustedPos = ((position - vec4(origin_scale.x, origin_scale.y, 0.0, 0.0)) * vec4(origin_scale.z, origin_scale.w, 0.0, 1.0));
 	gl_Position = Projection * View * m4Model * adjustedPos;
 }
