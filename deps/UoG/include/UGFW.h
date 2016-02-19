@@ -13,11 +13,11 @@
 *   building a math library
 **/
 #ifdef UGFW_DLL_BUILD
-#define DLLEXPORT __declspec(dllexport)
+#define UGFWAPI __declspec(UGFWAPI)
 #elif UGFW_DLL
-#define DLLEXPORT __declspec(dllimport)
+#define UGFWAPI __declspec(dllimport)
 #else
-#define DLLEXPORT 
+#define UGFWAPI 
 #endif
 
 namespace UG
@@ -69,23 +69,23 @@ namespace UG
 	/// @param a_bFullscreen should this application run in a fullscreen mode.
 	/// @param a_pWIndowTitle the title that we want to be displayed in the windows title bar
 	//////////////////////////////////////////////////////////////////////////
-	DLLEXPORT int			Create(int a_iWidth, int a_iHeight, bool a_bFullscreen = false, const char* a_pWindowTitle = nullptr, int a_xPosition = 0, int a_yPosition = 0);
+	UGFWAPI int			Create(int a_iWidth, int a_iHeight, bool a_bFullscreen = false, const char* a_pWindowTitle = nullptr, int a_xPosition = 0, int a_yPosition = 0);
 	//////////////////////////////////////////////////////////////////////////
 	/// @brief This function should be called just prior to exiting your program
 	///	it will unload all the components of the Framework that have been loaded
 	//////////////////////////////////////////////////////////////////////////
-	DLLEXPORT void			Dispose();
+	UGFWAPI void			Dispose();
 	//////////////////////////////////////////////////////////////////////////
 	/// @brief This function is to be called to update the current frame. 
 	/// @return a boolean value indicating that the framework updated successfully
 	//////////////////////////////////////////////////////////////////////////
-	DLLEXPORT bool			Process();
+	UGFWAPI bool			Process();
 	
 	//////////////////////////////////////////////////////////////////////////
 	/// @brief This function is to be called to close the application
 	///
 	//////////////////////////////////////////////////////////////////////////
-	DLLEXPORT void			Close();
+	UGFWAPI void			Close();
 
 #pragma region Line Drawing functionality
 
@@ -94,14 +94,14 @@ namespace UG
 	/// @param a_iStartY the starting Y Position for the line
 	/// @param a_iEndX the end X Position for the line
 	/// @param a_iEndY the end Y Position for the line
-	DLLEXPORT void			DrawLine(int a_iStartX, int a_iStartY, int a_iEndX, int a_iEndY);
+	UGFWAPI void			DrawLine(int a_iStartX, int a_iStartY, int a_iEndX, int a_iEndY);
 	/// @brief Function for drawing a line with a specific uniform colour
 	/// @param a_iStartX the starting X Position for the Line
 	/// @param a_iStartY the starting Y Position for the line
 	/// @param a_iEndX the end X Position for the line
 	/// @param a_iEndY the end Y Position for the line
 	/// @param a_sColour a Vec4 representing the color for the line segment
-	DLLEXPORT void			DrawLine(int a_iStartX, int a_iStartY, int a_iEndX, int a_iEndY, SColour a_sColour);
+	UGFWAPI void			DrawLine(int a_iStartX, int a_iStartY, int a_iEndX, int a_iEndY, SColour a_sColour);
 	/// @brief Function for drawing a line that starts as one colour and finishes as another colour.
 	/// @param a_iStartX the starting X Position for the Line
 	/// @param a_iStartY the starting Y Position for the line
@@ -109,27 +109,27 @@ namespace UG
 	/// @param a_iEndY the end Y Position for the line
 	/// @param a_sStartColour a Vec4 denoting the colour of the starting point of the line segment 
 	/// @param a_sEndColour a Vec4 denoting the colour of the end point of the line segment 
-	DLLEXPORT void			DrawLine(int a_iStartX, int a_iStartY, int a_iEndX, int a_iEndY, SColour a_sStartColour, SColour a_sEndColour);
+	UGFWAPI void			DrawLine(int a_iStartX, int a_iStartY, int a_iEndX, int a_iEndY, SColour a_sStartColour, SColour a_sEndColour);
 
 #pragma endregion
 #pragma region Input handling functionality
 	/// @brief Function returns weather a key is currently being pressed
 	/// @param a_uiKey the unique identifier for the key, these are kept in an enum referenced from GLFW
 	/// @return boolean value to represent wheather a key is held down or not
-	DLLEXPORT bool			IsKeyDown(unsigned int a_uiKey);
+	UGFWAPI bool			IsKeyDown(unsigned int a_uiKey);
 	/// @brief Function to get the position of the mouse, relative to the display window. Value is returned via function parameters passed in as reference arguments
 	///			the returned values are given in pixels from the windows origin.
 	/// @param a_uiMousePosX the reference argument that is to be given the value for the mouse cursors X position
 	/// @param a_uiMousePosY the reference argument that is to be given the value for the mouse cursors Y position
-	DLLEXPORT void			GetMousePos(double& a_uiMousePosX, double& a_uiMousePosY);
+	UGFWAPI void			GetMousePos(double& a_uiMousePosX, double& a_uiMousePosY);
 	/// @brief Function to test if a mouse button is being pressed. 
 	/// @param a_iMouseButton and integer identifier to identify the button to test for
 	/// @return boolean value indicating if button is currently being triggered
-	DLLEXPORT bool			GetMouseButtonDown(int a_iMouseButton);
+	UGFWAPI bool			GetMouseButtonDown(int a_iMouseButton);
 	/// @brief Function to Test to see if the mouse button has been released
 	/// @param a_iMoustButton an integer identifier to identify the button to test for release
 	/// @return boolean value to indicate weather button has just been released.
-	DLLEXPORT bool			GetMouseButtonReleased(int a_iMouseButton);
+	UGFWAPI bool			GetMouseButtonReleased(int a_iMouseButton);
 #pragma endregion
 #pragma region Sprite creation and mainpulation functionality
 	/// Function to create a Sprite
@@ -140,7 +140,7 @@ namespace UG
 	/// @param a_v4color - the colour tint that the sprite is to be given, defaults to white.
 	/// @return the ID for the sprite, this is an unsigned integer.
 	///
-	DLLEXPORT int			CreateSprite(const char* a_pTextureName, float a_fWidth, float a_fHeight, bool a_bDrawFromCenter = true, SColour a_sColour = SColour(0xFF, 0xFF, 0xFF, 0xFF));
+	UGFWAPI int			CreateSprite(const char* a_pTextureName, float a_fWidth, float a_fHeight, bool a_bDrawFromCenter = true, SColour a_sColour = SColour(0xFF, 0xFF, 0xFF, 0xFF));
 	/// Function to create a Sprite
 	/// @param a_pTextureName - the name of the texture that the sprite image resides in
 	/// @param a_fv2Size - the width and height of the sprite in Pixels as a float vector
@@ -149,113 +149,113 @@ namespace UG
 	/// @param a_v4color - the colour tint that the sprite is to be given, defaults to white.
 	/// @return the ID for the sprite, this is an unsigned integer.
 	///
-	DLLEXPORT int			CreateSprite(const char* a_pTextureName, const float* a_fv2Size, const float* a_fv2Origin, const float* a_fv4UVCoords = nullptr, SColour a_sColour = SColour(0xFF, 0xFF, 0xFF, 0xFF));
+	UGFWAPI int			CreateSprite(const char* a_pTextureName, const float* a_fv2Size, const float* a_fv2Origin, const float* a_fv4UVCoords = nullptr, SColour a_sColour = SColour(0xFF, 0xFF, 0xFF, 0xFF));
 	/// Function to Duplicate an existing Sprite
 	/// @param a_uiSpriteID This is ID of the sprite that is to be duplicated
 	/// @return Returns a new sprite ID.
-	DLLEXPORT  int			DuplicateSprite(int a_uiSpriteID);
+	UGFWAPI  int			DuplicateSprite(int a_uiSpriteID);
 	/// This function is used to free up the memory associated with the Sprite ID passed in. After this function is called the sprite can no longer be drawn as it ceases to exist
 	/// @param a_uiSpriteID the ID of the sprite to be destroyed.
-	DLLEXPORT void			DestroySprite(int a_uiSpriteID);
+	UGFWAPI void			DestroySprite(int a_uiSpriteID);
 
 	/// This function is used to set the layer that the sprite will be rendered on, lower layers are rendered first
 	/// @param a_iSpriteID the Unique ID that is used for the sprite
 	/// @param a_uiLayer the layer the the sprite is to be moved to
-	DLLEXPORT void			SetSpriteLayer(int a_iSpriteID, const unsigned int& a_uiLayer);
+	UGFWAPI void			SetSpriteLayer(int a_iSpriteID, const unsigned int& a_uiLayer);
 	/// This function is used to Get the layer that the sprite is currently rendered on, lower layers are rendered first
 	/// @param a_iSpriteID the Unique ID that is used for the sprite
 	/// @param a_uiLayer an unsigned int reference that will be returned with the layer that the sprite is currently on 
-	DLLEXPORT void			GetSpriteLayer(int a_iSpriteID, unsigned int& a_uiLayer);
+	UGFWAPI void			GetSpriteLayer(int a_iSpriteID, unsigned int& a_uiLayer);
 	/// This funciton moves a Sprite
 	/// @param a_uiSpriteID the ID of the sprite to be moved
 	/// @param a_fXPos the X co-ordinate that the sprite is to be moved to in screenspace
 	/// @param a_fYPos the Y co-ordinate that the sprite is to be moved to in screenspace
-	DLLEXPORT void			MoveSprite( int a_uiSpriteID, float a_fXPos, float a_fYPos);
+	UGFWAPI void			MoveSprite( int a_uiSpriteID, float a_fXPos, float a_fYPos);
 	/// This funciton moves a Sprite
 	/// @param a_uiSpriteID the ID of the sprite to be moved
 	/// @param a_fVec a float vector that contains two values (X & Y) to relocate the sprite to
-	DLLEXPORT void			MoveSprite( int a_uiSpriteID, const float* a_fVec);
+	UGFWAPI void			MoveSprite( int a_uiSpriteID, const float* a_fVec);
 	/// @brief This function gets the x y post of the Sprite
 	/// @param a_uiSpriteID the unique identifier for the sprite
 	/// @param a_fXPos the X co-ordinate that the sprite is at
 	/// @param a_fYPos the Y co-ordinate that the sprite is at
-	DLLEXPORT void			GetSpritePosition( int a_uiSpriteID, float& a_xPos, float& a_YPos);
+	UGFWAPI void			GetSpritePosition( int a_uiSpriteID, float& a_xPos, float& a_YPos);
 	/// @brief This function sets the 4x4 matrix for the sprite
 	/// @param a_uiSpriteID the unique identifier for the sprite
 	/// @param a_fm4 a float pointer indicating the start of a float array containing 16 values representing a 4 x 4 matrix
-	DLLEXPORT void			SetSpriteMatrix( int a_uiSpriteID, const float* a_fm4);
+	UGFWAPI void			SetSpriteMatrix( int a_uiSpriteID, const float* a_fm4);
 	/// @brief This function gets the 4x4 matrix for the sprite
 	/// @param a_uiSpriteID the unique identifier for the sprite
 	/// @param a_fm4 a float pointer indicating the start of a float array that is to be used to hold the 16 float values representing a 4 x 4 matrix
-	DLLEXPORT void			GetSpriteMatrix( int a_uiSpriteID, float* a_fm4);
+	UGFWAPI void			GetSpriteMatrix( int a_uiSpriteID, float* a_fm4);
 	/// @brief Function to instruct a sprite to draw the screen
 	/// @param a_uiSpriteID the unique identifier for the Sprite
-	DLLEXPORT void			DrawSprite( int a_uiSpriteID);
+	UGFWAPI void			DrawSprite( int a_uiSpriteID);
 	/// @brief Function to stop a sprite from drawing to the screen
 	/// @param a_uiSpriteID the unique identifier for the Sprite
-	DLLEXPORT void			StopDrawingSprite(int a_uiSpriteID);
+	UGFWAPI void			StopDrawingSprite(int a_uiSpriteID);
 	/// @brief Function to rotate a sprite by a_fRotation number of degrees, positive rotation is in a clockwise direction
 	/// @param a_uiSpriteID the unique ID for the sprite
 	/// @param a_fRotation the amount in degrees to rotate the sprite by, this value is non-cumulative E.G passing in a rotation value of 1 Degree every frame will not incrementally rotate the sprite each frame.
-	DLLEXPORT void			RotateSprite( int a_uiSpriteID, float a_fRotation);
+	UGFWAPI void			RotateSprite( int a_uiSpriteID, float a_fRotation);
 	/// @brief This function sets the sprites UV coordinates
 	/// @param a_uiSpriteID the unique identifier for the given sprite
 	/// @param a_minUCoord this represents the starting point for the UV coordinates on the U Texture axis
 	/// @param a_minVCoord this represents the starting point for the UV coordinates on the V Texture axis
 	/// @param a_maxUCoord this represents the end point for the UV coordinates on the U Texture axis
 	/// @param a_maxVCoord this represents the end point for the UV coordinates on the V Texture axis
-	DLLEXPORT void			SetSpriteUVCoordinates( int a_uiSpriteID, float a_minUCoord, float a_minVCoord, float a_maxUCoord, float a_maxVCoord);
+	UGFWAPI void			SetSpriteUVCoordinates( int a_uiSpriteID, float a_minUCoord, float a_minVCoord, float a_maxUCoord, float a_maxVCoord);
 	/// @brief This function sets the sprites UV coordinates
 	/// @param a_uiSpriteID the unique identifier for the given sprite
 	/// @param a_v4UVVoordinates a float vector4 representing the minimum and maximum UV Coordinates for the sprite, the X and Y components of the Vec4 correspond to the minimum UV coordinates
 	///			the Z & W components correspond to the maximum UV Coordinates
-	DLLEXPORT void			SetSpriteUVCoordinates( int a_uiSpriteID, const float* a_fUVVec4);
+	UGFWAPI void			SetSpriteUVCoordinates( int a_uiSpriteID, const float* a_fUVVec4);
 	/// @brief This functions retrieves the Sprites current UV coordinates
 	/// @param a_uiSpriteID the unique identifier for the given sprite
 	/// @param a_minUCoord this represents the starting point for the UV coordinates on the U Texture axis
 	/// @param a_minVCoord this represents the starting point for the UV coordinates on the V Texture axis
 	/// @param a_maxUCoord this represents the end point for the UV coordinates on the U Texture axis
 	/// @param a_maxVCoord this represents the end point for the UV coordinates on the V Texture axis
-	DLLEXPORT void			GetSpriteUVCoordinates( int a_uiSpriteID, float& a_minUCoord, float& a_minVCoord, float& a_maxUCoord, float& a_maxVCoord);
+	UGFWAPI void			GetSpriteUVCoordinates( int a_uiSpriteID, float& a_minUCoord, float& a_minVCoord, float& a_maxUCoord, float& a_maxVCoord);
 	/// @brief This functions retrieves the Sprites current UV coordinates
 	/// @param a_uiSpriteID the unique identifier for the given sprite
 	/// @param a_v4UVVoordinates a float vector4 representing the minimum and maximum UV Coordinates for the sprite, the X and Y components of the Vec4 correspond to the minimum UV coordinates
 	///			the Z & W components correspond to the maximum UV Coordinates
-	DLLEXPORT void			GetSpriteUVCoordinates( int a_uiSpriteID, float* a_fUVVec4);
+	UGFWAPI void			GetSpriteUVCoordinates( int a_uiSpriteID, float* a_fUVVec4);
 	/// @brief Used to set the colour for the sprite
 	/// @param a_uiSpriteID the unique identifier for the given sprite
 	/// @param a_sColour the colour that the sprite is to be tinted with, this colour is passed in a vec4 with xyzw values mapping to rgba values
-	DLLEXPORT void			SetSpriteColour( int a_uiSpriteID, const SColour& a_sColour);
+	UGFWAPI void			SetSpriteColour( int a_uiSpriteID, const SColour& a_sColour);
 	/// @brief Used to get the current colour for the sprite
 	/// @param a_uiSpriteID the unique identifier for the given sprite
 	/// @param a_sColour the colour that the sprite is tinted with, this colour is accessed via a vec4 with xyzw values mapping to rgba values
-	DLLEXPORT void			GetSpriteColour( int a_uiSpriteID, SColour& a_sColour);
+	UGFWAPI void			GetSpriteColour( int a_uiSpriteID, SColour& a_sColour);
 	/// @brief Used to set the discard colour for the sprite
 	/// @param a_uiSpriteID the unique identifier for the given sprite
 	/// @param a_sColour the colour that the sprite is to be tinted with, this colour is passed in a vec4 with xyzw values mapping to rgba values
-	DLLEXPORT void			SetSpriteDiscardColour(int a_uiSpriteID, const SColour& a_sColour);
+	UGFWAPI void			SetSpriteDiscardColour(int a_uiSpriteID, const SColour& a_sColour);
 	/// @brief Used to get the discard colour for the sprite
 	/// @param a_uiSpriteID the unique identifier for the given sprite
 	/// @param a_sColour the colour that the sprite is tinted with, this colour is accessed via a vec4 with xyzw values mapping to rgba values
-	DLLEXPORT void			GetSpriteDiscardColour(int a_uiSpriteID, SColour& a_sColour);
+	UGFWAPI void			GetSpriteDiscardColour(int a_uiSpriteID, SColour& a_sColour);
 	/// @brief Used to set the current scale for the sprite
 	/// @param a_uiSpriteID the unique identifier for the given sprite
 	/// @param a_v2Scale a Vec2 representing the scale in the X and Y Directions that the sprite is to be scaled by
-	DLLEXPORT void			SetSpriteScale( int a_uiSpriteID, const float& a_fSpriteWidth, const float& a_fSpriteHeight);
+	UGFWAPI void			SetSpriteScale( int a_uiSpriteID, const float& a_fSpriteWidth, const float& a_fSpriteHeight);
 	/// @brief Used to get the current scale for the sprite
 	/// @param a_uiSpriteID the unique identifier for the given sprite
 	/// @param a_v2Scale a Vec2 representing the scale in the X and Y Directions that the sprite is to currently scaled by
-	DLLEXPORT void			GetSpriteScale( int a_uiSpriteID, float& a_fSpriteWidth, float& a_fSpriteHeight);
+	UGFWAPI void			GetSpriteScale( int a_uiSpriteID, float& a_fSpriteWidth, float& a_fSpriteHeight);
 	/// @brief Used to set the current blend mode for the sprite
 	/// @param a_uiSpriteID the unique identifier for the given sprite
 	/// @param a_uiSourceFactor the blend factor for the source image
 	/// @param a_uiDestinationFactor the blend mode that is to be used by the destination image.
-	DLLEXPORT void			SetSpriteBlendMode( int a_uiSpriteID, const unsigned int& a_uiSourceFactor, const unsigned int& a_uiDestinationFactor);
+	UGFWAPI void			SetSpriteBlendMode( int a_uiSpriteID, const unsigned int& a_uiSourceFactor, const unsigned int& a_uiDestinationFactor);
 	/// @brief Used to get the current blend mode for the sprite
 	/// @param a_uiSpriteID the unique identifier for the given sprite
 	/// @param a_uiSourceFactor the current blend factor for the source image
 	/// @param a_uiDestinationFactor the current blend mode that is used by the destination image.
-	DLLEXPORT void			GetSpriteBlendMode( int a_uiSpriteID, unsigned int& a_uiSourceFactor, unsigned int& a_uiDestinationFactor);
+	UGFWAPI void			GetSpriteBlendMode( int a_uiSpriteID, unsigned int& a_uiSourceFactor, unsigned int& a_uiDestinationFactor);
 
 #pragma endregion
 #pragma region Font Rendering functionality
@@ -264,26 +264,26 @@ namespace UG
 	///			the deeper parts of the font renderering functionality
 	/// @param a_v4Color the color that the text is to be rendered in
 	/// @param a_pTextToDisplay the text that is to be written to the screen. This is to be passed through as a pointer to a char array.
-	DLLEXPORT void			DrawString(const char* a_pText, int a_iXPos, int a_iYPos, float fSize = 1.0f, SColour a_sColour = SColour(0xFF, 0xFF, 0xFF, 0xFF));
+	UGFWAPI void			DrawString(const char* a_pText, int a_iXPos, int a_iYPos, float fSize = 1.0f, SColour a_sColour = SColour(0xFF, 0xFF, 0xFF, 0xFF));
 
-	DLLEXPORT void			AddFont(const char* a_pFontName);
-	DLLEXPORT void			SetFont(const char* a_pFontName);
-	DLLEXPORT void			RemoveFont(const char* a_pFontName);
+	UGFWAPI void			AddFont(const char* a_pFontName);
+	UGFWAPI void			SetFont(const char* a_pFontName);
+	UGFWAPI void			RemoveFont(const char* a_pFontName);
 
 #pragma endregion
 
-	DLLEXPORT void			ClearScreen();
-	DLLEXPORT void			SetBackgroundColor(SColour a_bgColor);
+	UGFWAPI void			ClearScreen();
+	UGFWAPI void			SetBackgroundColor(SColour a_bgColor);
 	//////////////////////////////////////////////////////////////////////////
 	/// @brief GetDeltaTime() a function to get the amount of time that has passed since the last time the CPU was polled
 	///	@return the amount of time that has passed in seconds since the CPU was last polled.
 	//////////////////////////////////////////////////////////////////////////
-	DLLEXPORT float			GetDeltaTime();
+	UGFWAPI float			GetDeltaTime();
 
 
 	//Functionality that we need in our base application
-	DLLEXPORT void			GetScreenSize(int& a_iWidth, int& a_iHeight);
+	UGFWAPI void			GetScreenSize(int& a_iWidth, int& a_iHeight);
 
-	DLLEXPORT void			SetScreenSize(const int& a_iWidth, const int& a_iHeight);
+	UGFWAPI void			SetScreenSize(const int& a_iWidth, const int& a_iHeight);
 
 }

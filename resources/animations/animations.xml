@@ -1,0 +1,27 @@
+<?xml version="1.0" standalone="no" ?>
+<animations spritesheet="sprites.png">
+	<animation name="device" speed="12" frames="12" hflip="0" vflip="0" >
+		<frame x= "87" y="813" width="56" height="24" originX= "0.5" originY="0.5"  />
+		<frame x="153" y="813" width="56" height="24" />
+		<frame x="219" y="813" width="56" height="24" />
+		<frame x="285" y="813" width="56" height="24" />
+		<frame x= "87" y="843" width="56" height="24" />
+		<frame x="153" y="843" width="56" height="24" />
+		<frame x="219" y="843" width="56" height="24" />
+		<frame x="285" y="843" width="56" height="24" />
+		<frame x= "87" y="874" width="56" height="24" />
+		<frame x="153" y="874" width="56" height="24" />
+		<frame x="219" y="874" width="56" height="24" />
+		<frame x="285" y="874" width="56" height="24" />
+	</animation>
+	<animation name="handle" speed="30" frames="8" hflip="0" vflip="0" >
+		<frame x= "280" y="789" width="16" height="16" />
+		<frame x= "300" y="789" width="16" height="16" />
+		<frame x= "320" y="789" width="16" height="16" />
+		<frame x= "340" y="789" width="16" height="16" />
+		<frame x= "360" y="789" width="16" height="16" />
+		<frame x= "380" y="789" width="16" height="16" />
+		<frame x= "400" y="789" width="16" height="16" />
+		<frame x= "420" y="789" width="16" height="16" />
+	</animation>
+</animations>

@@ -2,28 +2,33 @@
 #include "Enumerations.h"
 
 #include <iostream>
-/*#include <GL/glew.h>
-#include <GLFW/glfw3.h>
-#include <glm/ext.hpp>
-*/
+#include "mathLib.h"
+#include "Sprite.h"
 
 int main(int argv, char* argc[])
 {
-	if (UG::Create( 1024, 768, false, "Framework Test", 100, 100 ))
+	if (UG::Create( 1400, 985, false, "Framework Test", 100, 100 ))
 	{
+
+		int iScreenWidth = 0, iScreenHeight = 0;
+		UG::GetScreenSize(iScreenWidth, iScreenHeight);
+
 		UG::SetBackgroundColor(UG::SColour(0x00, 0x00, 0x00, 0xFF));
 		UG::AddFont("./fonts/invaders.fnt");
 		//\Now lets create the sprite for our players cannon. That's right in space invaders we control a cannon
 		//\So lets create that with an appropriate variable name and move it to a suitable location (say the middle of our screen)
 		int iPlayerSprite = UG::CreateSprite("./images/cannon.png", 64, 32, true);
-
-		int iScreenWidth = 0, iScreenHeight = 0;
-		UG::GetScreenSize(iScreenWidth, iScreenHeight);
-		UG::MoveSprite(iPlayerSprite, iScreenWidth * 0.5f, iScreenHeight * 0.5f);
-		UG::DrawSprite(iPlayerSprite);
+		Sprite* pBackground = new Sprite("./images/background.png", iScreenWidth, iScreenHeight, CVector2(0.5f, 0.5f), CVector4(0.f, 0.f, 1.f, 1.f));
+		pBackground->MarkForDraw();
+		pBackground->SetPosition(CVector2(iScreenWidth * 0.5f, iScreenHeight * 0.5f));
+		pBackground->Update(0.f);
+		
 
 		do 
 		{
+			float fDt = UG::GetDeltaTime();
+			
+
 			float xPos = 0; float yPos = 0;
 			UG::GetSpritePosition(iPlayerSprite, xPos, yPos);
 
