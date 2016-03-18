@@ -1,8 +1,6 @@
 //
 //  tinyxmlHelper.h
 //  
-//
-//  Created by AIE Melbourne on 1/05/12.
 //  
 //
 
@@ -12,7 +10,7 @@
 #include "tinyxml.h"
 #include "StrHandler.h"
 
-bool GetAttributeString( TiXmlElement *element, char const * const toFind, char * const toFillIn );
+bool GetAttributeString( TiXmlElement *element, char const * const toFind, char * const toFillIn, const unsigned int& size);
 
 template<typename T>
 inline bool GetAttributeInt( TiXmlElement *element, char const * const toFind, T& toFillIn )

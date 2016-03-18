@@ -1,5 +1,6 @@
 #include "UGFW.h"
 #include "AnimationManager.h"
+#include "tinyxml.h"
 #include "tinyxmlHelper.h"
 
 AnimationManager::AnimationManager() : Manager<AnimationManager>()
@@ -29,6 +30,7 @@ bool AnimationManager::LoadAnimationsFromFile(const char* a_pFilename)
 			//\===============================================================================================
 			TiXmlElement *xmlElementInfo = xmlNodeAnimations->ToElement();
 			char pSpriteSheetName[128];
+			memset(pSpriteSheetName, 0, 128);
 			unsigned int textureID = 0;
 			unsigned int textureWidth = 0;
 			unsigned int textureHeight = 0;
@@ -46,11 +48,12 @@ bool AnimationManager::LoadAnimationsFromFile(const char* a_pFilename)
 			while (xmlNodeAnimation)
 			{
 				char pAnimName[64];
+				memset(pAnimName, 0, 64);
 				//We have a new animation so create a new Animation to hold this data
 				Animation* currentAnim = new Animation();
 				//get the animation Name
 				TiXmlElement *xmlAnimationInfo = xmlNodeAnimation->ToElement();
-				if (!GetAttributeString(xmlAnimationInfo, "name", pAnimName, (unsigned int)(sizeof(char) * 128)))
+				if (!GetAttributeString(xmlAnimationInfo, "name", pAnimName, (unsigned int)(sizeof(char) * 64)))
 				{
 					printf("Could not find 'name' element in XML!\n");
 					continue;

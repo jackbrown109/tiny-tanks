@@ -1,21 +1,19 @@
 //
 //  tinyxmlHelper.cpp
-//  AIE
-//
-//  Created by AIE Melbourne on 1/05/12.
+
 //  
 //
 #include "tinyxmlHelper.h"
 
 // Helper functions for passing XML.
-bool GetAttributeString( TiXmlElement *element, char const * const toFind, char * const toFillIn )
+bool GetAttributeString( TiXmlElement *element, char const * const toFind, char * const toFillIn, const unsigned int& size)
 {
 	const char * found = element->Attribute( toFind );
 	if ( !found )
 	{
 		return false;
 	}
-    StrHandler::Copy( toFillIn, 256, found );
+    StrHandler::Copy( toFillIn, size, found );
     
 	return true;
 }
