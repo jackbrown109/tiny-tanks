@@ -103,7 +103,7 @@
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)../../include;$(SolutionDir)../../deps/tinyxml;$(SolutionDir)../../deps/UoG/include;$(SolutionDir)../../deps/mathLib/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)../../include;$(SolutionDir)../../deps/UoG/include;$(SolutionDir)../../deps/mathLib/include;$(SolutionDir)../../deps/tinyxml</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>MATH_DLL;_CRT_SECURE_NO_WARNINGS;GLM_SWIZZLE;GLM_FORCE_RADIANS;GLM_FORCE_PURE;GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DisableSpecificWarnings>4201;4310;4100;</DisableSpecificWarnings>
     </ClCompile>
@@ -121,7 +121,7 @@
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)../../include;$(SolutionDir)../../deps/tinyxml;$(SolutionDir)../../deps/UoG/include;$(SolutionDir)../../deps/mathLib/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)../../include;$(SolutionDir)../../deps/UoG/include;$(SolutionDir)../../deps/mathLib/include;$(SolutionDir)../../deps/tinyxml</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>MATH_DLL;_CRT_SECURE_NO_WARNINGS;GLM_SWIZZLE;GLM_FORCE_RADIANS;GLM_FORCE_PURE;GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DisableSpecificWarnings>4201;4310;4100;</DisableSpecificWarnings>
     </ClCompile>
@@ -141,7 +141,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)../../include;$(SolutionDir)../../deps/tinyxml;$(SolutionDir)../../deps/UoG/include;$(SolutionDir)../../deps/mathLib/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)../../include;$(SolutionDir)../../deps/UoG/include;$(SolutionDir)../../deps/mathLib/include;$(SolutionDir)../../deps/tinyxml</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>MATH_DLL;_CRT_SECURE_NO_WARNINGS;GLM_SWIZZLE;GLM_FORCE_RADIANS;GLM_FORCE_PURE;GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DisableSpecificWarnings>4201;4310;4100;</DisableSpecificWarnings>
     </ClCompile>
@@ -163,7 +163,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)../../include;$(SolutionDir)../../deps/tinyxml;$(SolutionDir)../../deps/UoG/include;$(SolutionDir)../../deps/mathLib/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)../../include;$(SolutionDir)../../deps/UoG/include;$(SolutionDir)../../deps/mathLib/include;$(SolutionDir)../../deps/tinyxml</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>MATH_DLL;_CRT_SECURE_NO_WARNINGS;GLM_SWIZZLE;GLM_FORCE_RADIANS;GLM_FORCE_PURE;GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DisableSpecificWarnings>4201;4310;4100;</DisableSpecificWarnings>
     </ClCompile>
