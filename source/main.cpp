@@ -4,12 +4,16 @@
 #include <iostream>
 #include "mathLib.h"
 #include "Sprite.h"
+#include "AnimationManager.h"
 
 int main(int argv, char* argc[])
 {
 	if (UG::Create( 1400, 985, false, "Framework Test", 100, 100 ))
 	{
 
+		AnimationManager::CreateInstance();
+
+		
 		int iScreenWidth = 0, iScreenHeight = 0;
 		UG::GetScreenSize(iScreenWidth, iScreenHeight);
 
@@ -23,6 +27,8 @@ int main(int argv, char* argc[])
 		pBackground->SetPosition(CVector2(iScreenWidth * 0.5f, iScreenHeight * 0.5f));
 		pBackground->Update(0.f);
 		
+
+		AnimationManager::GetInstance()->LoadAnimationsFromFile("./animations/animations.xml");
 
 		do 
 		{
