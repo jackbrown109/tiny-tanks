@@ -1,4 +1,5 @@
 #include "Sprite.h"
+#include "ResourceManager.h"
 #include "UGFW.h"
 
 
@@ -9,6 +10,7 @@ Sprite::Sprite( const char* a_fileName, int a_width, int a_height, CVector2 a_or
 	memset(mat4x4, 0, sizeof(float) * 16);
 	UG::GetSpriteMatrix(m_iSpriteID, mat4x4);
 	m_m4PosRot = CMatrix4(mat4x4);
+	m_CurrentAnimation = nullptr;
 }
 //Destructor
 Sprite::~Sprite() 
@@ -32,6 +34,22 @@ void Sprite::Update(float a_fdt)
 	GetWorldTransform(worldTx);
 	UG::SetSpriteMatrix(m_iSpriteID, worldTx);
 
+	if (m_CurrentAnimation)
+	{
+		static float frameTime = 0.3f;
+		static float currTime = 0.f;
+		static int currFrame = 0;
+		currTime += a_fdt;
+		if (currTime > frameTime)
+		{
+			currTime = 0.f;
+			currFrame++;
+			currFrame = currFrame % m_CurrentAnimation->frames.size();
+		}
+
+		UG::SetSpriteUVCoordinates(m_iSpriteID, m_CurrentAnimation->frames[currFrame].uvCoordinates);
+
+	}
 }
 //Function to move our sprite
 // The movement vector argument is not guaranteed to be a unit vector as we may be moving scaled by a velocity
@@ -60,4 +78,28 @@ void Sprite::SetPosition(CVector2 a_pos) {
 	CVector4 np = CVector4(a_pos.x, a_pos.y, 0.f, 1.f);
 	m_m4PosRot.SetRow(3, np);
 
+}
+
+void Sprite::LoadAnimations(const char* a_pAnimationFilename)
+{
+	if (ResourceManager::GetInstance())
+	{
+		ResourceManager::GetInstance()->LoadAnimationsFromFile(a_pAnimationFilename, m_animations);
+	}
+}
+
+void Sprite::SetAnimation(const char* a_animName)
+{
+	m_CurrentAnimation = GetAnimation(a_animName);
+}
+
+Animation* Sprite::GetAnimation(const char* a_pAnimName)
+{
+	unsigned int animHash = ELFHash(a_pAnimName);
+	auto iter = m_animations.find(animHash);
+	if (iter != m_animations.end())
+	{
+		return static_cast<Animation*>(iter->second);
+	}
+	return nullptr;
 }

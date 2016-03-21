@@ -19,13 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\source\AnimationManager.cpp" />
+    <ClCompile Include="..\..\source\ResourceManager.cpp" />
     <ClCompile Include="..\..\source\main.cpp" />
     <ClCompile Include="..\..\source\Node.cpp" />
     <ClCompile Include="..\..\source\Sprite.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\AnimationManager.h" />
+    <ClInclude Include="..\..\include\Animation.h" />
+    <ClInclude Include="..\..\include\ResourceManager.h" />
     <ClInclude Include="..\..\include\Manager.h" />
     <ClInclude Include="..\..\include\Node.h" />
     <ClInclude Include="..\..\include\Sprite.h" />

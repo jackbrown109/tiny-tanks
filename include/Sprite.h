@@ -4,6 +4,8 @@
 #define __SPRITE_H__
 
 #include "Node.h"
+#include "Animation.h"
+#include <map>
 
 //A very simple sprite class that extends from node allowing us to have a sprite hierarchy tree in our game
 class Sprite : public CNode {
@@ -25,11 +27,18 @@ public:
 
 	void SetPosition(CVector2 a_pos);
 
+	void LoadAnimations(const char* a_animationFilename);
+	void SetAnimation(const char* a_animName);
+	
+	Animation* GetAnimation(const char* a_pAnimName);
+
 private:
 	int m_iSpriteID;
 	int m_iWidth;
 	int m_iHeight;
 	CVector2 m_v2Origin;
+	Animation* m_CurrentAnimation;
+	std::map< unsigned int, Animation* > m_animations;
 
 };
 

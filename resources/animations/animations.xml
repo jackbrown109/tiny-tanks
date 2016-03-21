@@ -1,10 +1,10 @@
 <?xml version="1.0" standalone="no" ?>
 <animations spritesheet="./images/sprites.png">
 	<animation name="device" speed="12" frames="12" hflip="0" vflip="0" >
-		<frame x= "87" y="813" width="56" height="24" originX= "0.5" originY="0.5"  />
-		<frame x="153" y="813" width="56" height="24" />
-		<frame x="219" y="813" width="56" height="24" />
-		<frame x="285" y="813" width="56" height="24" />
+		<frame x= "87" y="807" width="56" height="24" originX= "0.5" originY="0.5"  />
+		<frame x="153" y="807" width="56" height="24" />
+		<frame x="219" y="807" width="56" height="24" />
+		<frame x="285" y="807" width="56" height="24" />
 		<frame x= "87" y="843" width="56" height="24" />
 		<frame x="153" y="843" width="56" height="24" />
 		<frame x="219" y="843" width="56" height="24" />
