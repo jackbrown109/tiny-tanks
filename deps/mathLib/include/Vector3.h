@@ -40,6 +40,7 @@ public:
 	//\ Constructors
 	//\===================================================
 	Vector3();
+	Vector3(const Vector2& a_v2, float z = 0.f);
 	Vector3(const Vector3& a_v3);
 	Vector3(const float a_fVal);
 	Vector3(float a_x, float a_y, float a_z);

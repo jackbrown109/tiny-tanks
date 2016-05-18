@@ -2,9 +2,12 @@
 #ifndef __BULLET_H__
 #define __BULLET_H__
 
-#include "Entity.h"
+#include "Sprite.h"
+#include "mathLib.h"
 
-class Bullet : public Entity
+
+
+class Bullet
 {
 public:
 	//\===================================================
@@ -18,7 +21,7 @@ public:
 	//\===================================================
 	~Bullet();
 
-	
+
 
 
 	void Update(float a_fDeltaTime);
@@ -26,7 +29,7 @@ public:
 
 
 
-
+	bool isAlive;
 
 
 protected:
@@ -35,7 +38,7 @@ protected:
 
 
 private:
-
+	
 
 
 };

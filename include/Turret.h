@@ -2,10 +2,11 @@
 #ifndef __TURRET_H__
 #define __TURRET_H__
 
-#include "Entity.h"
+#include "Sprite.h"
+#include "mathLib.h"
 
 
-class Turret : public Entity 
+class Turret
 {
 public:
 	//\===================================================
@@ -19,18 +20,17 @@ public:
 	//\===================================================
 	virtual ~Turret();
 	
-	virtual int GetSpriteID();
 
 
 	void Update(float a_fDeltaTime);
-
+	void Draw();
 protected:
 
 	
 
 
 private:
-
+	
 
 };
 

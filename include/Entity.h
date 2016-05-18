@@ -1,5 +1,7 @@
 #pragma once
 #include "mathLib.h"
+#include <set>
+#include <iostream>
 
 #ifndef __ENTITY_H__
 #define __ENTITY_H__
@@ -31,6 +33,7 @@ public:
 	//void GetPosition(Vector2& a_pos);
 	//void Rotate(Vector2& a_rot);
 	void GetSize(float& a_Width, float& a_Height) const;
+	//Vector2 getRotateVector();
 	int  GetSpriteID();
 	void SetVelocity(int a_x, int a_y);
 	void SetBoundary(const float& a_x, const float& a_y);
@@ -55,14 +58,31 @@ protected:
 	float m_yPos;
 	//Vector2 m_v2Pos;
 	//Vector2 m_v2Rot;
-
+	int Vector2pos;
 	int m_velX;
 	int m_velY;
+
+	float Vector2pos;
+	float PI = 3.14159265359;
+
+	float fCurrentVelocity = 0.f;
+	float fMaxVelocity = 10.f;
+	float fDrag = 0.03f;
+	
+
+
 
 private:
 
 
 };
+
+
+
+
+
+
+//=================================================================================================================================
 
 #endif //__ENTITY_H__
 

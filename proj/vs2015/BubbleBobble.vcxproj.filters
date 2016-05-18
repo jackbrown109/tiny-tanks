@@ -21,16 +21,19 @@
     <ClCompile Include="..\..\source\Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\source\Entity.cpp">
+    <ClCompile Include="..\..\source\Node.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\source\Enemy.cpp">
+    <ClCompile Include="..\..\source\Sprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Turret.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\source\Bullet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\source\Turret.cpp">
+    <ClCompile Include="..\..\source\Player2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -38,16 +41,19 @@
     <ClInclude Include="..\..\include\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Entity.h">
+    <ClInclude Include="..\..\include\Node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Enemy.h">
+    <ClInclude Include="..\..\include\Sprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Turret.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Bullet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Turret.h">
+    <ClInclude Include="..\..\include\Player2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

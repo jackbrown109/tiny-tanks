@@ -73,6 +73,20 @@ void Entity::GetSize(float& a_Width, float& a_Height) const
 
 }
 
+/*
+Vector2 Entity::getRotateVector()
+{
+	Vector2pos;
+	getPosition(pos);
+	radAngle = radAngle * PI / 180;
+
+	Vector2 pos = a_v2;
+
+	pos.Rotate(radAngle);
+	return pos;
+}
+*/
+
 int Entity::GetSpriteID()
 {
 	return m_iSpriteID;
